@@ -18,6 +18,7 @@ import android.webkit.WebViewClient;
 /**
  * 主Activity
  * @author lijunf
+ * @date 2015-06-01
  *
  */
 public class MainActivity extends Activity {
