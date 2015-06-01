@@ -15,6 +15,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+/**
+ * ä¸»Activity
+ * @author lijunf
+ *
+ */
 public class MainActivity extends Activity {
 	
 	private WebView webview;  
@@ -50,17 +55,17 @@ public class MainActivity extends Activity {
 	}
 	
 	@Override 
-    //ÉèÖÃ»ØÍË  
-    //¸²¸ÇActivityÀàµÄonKeyDown(int keyCoder,KeyEvent event)·½·¨  
+    //è®¾ç½®å›é€€  
+    //è¦†ç›–Activityç±»çš„onKeyDown(int keyCoder,KeyEvent event)æ–¹æ³•  
     public boolean onKeyDown(int keyCode, KeyEvent event) {  
         if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {  
-            webview.goBack(); //goBack()±íÊ¾·µ»ØWebViewµÄÉÏÒ»Ò³Ãæ  
+            webview.goBack(); //goBack()è¡¨ç¤ºè¿”å›WebViewçš„ä¸Šä¸€é¡µé¢  
             return true;  
         }  
         return false;  
     }  
       
-    //WebÊÓÍ¼  
+    //Webè§†å›¾  
     private class HelloWebViewClient extends WebViewClient {  
         @Override 
         public boolean shouldOverrideUrlLoading(WebView view, String url) {  
@@ -73,19 +78,19 @@ public class MainActivity extends Activity {
 		}
 
 		@Override
-		public void onPageStarted(WebView view, String url, Bitmap favicon) {// ÍøÒ³Ò³Ãæ¿ªÊ¼¼ÓÔØµÄÊ±ºò
+		public void onPageStarted(WebView view, String url, Bitmap favicon) {// ç½‘é¡µé¡µé¢å¼€å§‹åŠ è½½çš„æ—¶å€™
 
 			if (progressDialog == null) {
 				progressDialog = new ProgressDialog(MainActivity.this);
-				progressDialog.setMessage("Êı¾İ¼ÓÔØÖĞ£¬ÇëÉÔºó¡£¡£¡£");
+				progressDialog.setMessage("æ•°æ®åŠ è½½ä¸­ï¼Œè¯·ç¨åã€‚ã€‚ã€‚");
 				progressDialog.show();
-				webview.setEnabled(false);// µ±¼ÓÔØÍøÒ³µÄÊ±ºò½«ÍøÒ³½øĞĞÒş²Ø
+				webview.setEnabled(false);// å½“åŠ è½½ç½‘é¡µçš„æ—¶å€™å°†ç½‘é¡µè¿›è¡Œéšè—
 			}
 			super.onPageStarted(view, url, favicon);
 		}
 
 		@Override
-		public void onPageFinished(WebView view, String url) {// ÍøÒ³¼ÓÔØ½áÊøµÄÊ±ºò
+		public void onPageFinished(WebView view, String url) {// ç½‘é¡µåŠ è½½ç»“æŸçš„æ—¶å€™
 			if (progressDialog != null && progressDialog.isShowing()) {
 				progressDialog.dismiss();
 				progressDialog = null;
